@@ -1,0 +1,21 @@
+.spacer-top{
+  margin-top: 50px;
+}
+.btn-height{
+  height: 200px;
+
+}
+
+
+ion-content{
+  --background: none;
+  background-image: url("../../assets/img/rdv_img_04.jpg") ;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+ion-card {
+  --background:rgba(240, 246, 254, 0.7);
+  //opacity: 0.7;
+}

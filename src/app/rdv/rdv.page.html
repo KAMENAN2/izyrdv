@@ -1,0 +1,94 @@
+<ion-header >
+  <ion-toolbar color="danger">
+    <ion-title>
+      Enregistrement RDV
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="padding " >
+
+  <ion-progress-bar slot="fixed" [value]="progress" color="tertiary"></ion-progress-bar>
+
+
+  <ion-card>
+    <ion-card-header color="light">
+      <ion-card-title>
+
+        <ion-row>
+          <ion-col>
+            <div class="ion-text-start">
+              Rendez-vous
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="ion-text-end">
+              Etape 2
+            </div>
+          </ion-col>
+
+        </ion-row>
+
+      </ion-card-title>
+    </ion-card-header>
+    <ion-item-divider>
+
+    </ion-item-divider>
+    <ion-card-content>
+      <form #f="ngForm" (ngSubmit)="onSaveRDV(f.value)">
+
+        <ion-item>
+          <ion-label position="floating">Objet RDV</ion-label>
+          <ion-select interface="popover" (focusin)="onProgress(0.05)" name="objetRdv" ngModel>
+            <ion-select-option value="projet">Projet</ion-select-option>
+            <ion-select-option value="Support ou maintenance">Support ou maintenance</ion-select-option>
+            <ion-select-option value="Intervention incident">Intervention incident</ion-select-option>
+            <ion-select-option value="Livraisons materiel">Livraisons materiel</ion-select-option>
+            <ion-select-option value="Invitation">Invitation</ion-select-option>
+            <ion-select-option value="Divers">Divers</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Date Visite</ion-label>
+          <ion-datetime  displayFormat="DD/MM/YYYY" min="2012-12-09" max="2030-12-09" value="" name="dateRdv" ngModel></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Heure Visite</ion-label>
+          <ion-datetime (focusin)="onProgress(0.05)" displayFormat="HH:mm" name="heureRdv" ngModel></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Lieu visite</ion-label>
+          <ion-input type="text" (focusin)="onProgress(0.1)" name="lieuRdv" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Durée RDV </ion-label>
+          <ion-select interface="popover" (focusin)="onProgress(0.05)" name="dureeRdv" ngModel>
+            <ion-select-option value="30 mn">30 mn</ion-select-option>
+            <ion-select-option value="1H">1H</ion-select-option>
+            <ion-select-option value="1H 30mn">1H 30mn</ion-select-option>
+            <ion-select-option value="2H">2H</ion-select-option>
+            <ion-select-option value="2H 30mn">2H 30mn</ion-select-option>
+            <ion-select-option value="3H">3H</ion-select-option>
+            <ion-select-option value="plus de 3H 30mn">3H 30mn et plus</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Description RDV</ion-label>
+          <ion-textarea (focusin)="onProgress(0.1)" name="descriptionRdv" ngModel></ion-textarea>
+        </ion-item>
+        <div>
+          <ion-button type="submit" color="danger" expand="full">Save <ion-icon name="archive"></ion-icon></ion-button>
+        </div>
+
+        <!--                <div>-->
+        <!--                    <ion-button type="button" color="danger" (click)="onShowDate()" >Date Piker </ion-button>-->
+        <!--                </div>-->
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

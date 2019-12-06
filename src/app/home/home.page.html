@@ -1,14 +1,109 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header >
+              <ion-toolbar color="danger">
+                <ion-title>
+                  Enregistrement RDV
+                </ion-title>
+              </ion-toolbar>
+            </ion-header>
+<ion-content class="padding " >
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+        <ion-progress-bar slot="fixed" [value]="progress" color="tertiary"></ion-progress-bar>
+
+
+    <ion-card>
+        <ion-card-header color="light">
+            <ion-card-title>
+
+                    <ion-row>
+                        <ion-col>
+                            <div class="ion-text-start">
+                                Rendez-vous
+                            </div>
+                        </ion-col>
+                        <ion-col>
+                            <div class="ion-text-end">
+                                Etape 1
+                            </div>
+                        </ion-col>
+
+                    </ion-row>
+
+            </ion-card-title>
+        </ion-card-header>
+        <ion-item-divider>
+
+        </ion-item-divider>
+        <ion-card-content>
+          <form #f="ngForm" (ngSubmit)="onSaveRDV(f.value)">
+            <ion-item>
+                    <ion-label position="floating">Nom visiteur</ion-label>
+                    <ion-input (focusin)="onProgress()"  type="text" name="nom" ngModel></ion-input>
+            </ion-item>
+              <ion-item>
+                    <ion-label position="floating">Prénom visiteur</ion-label>
+                    <ion-input type="text" name="prenom" ngModel></ion-input>
+            </ion-item>
+
+            <ion-item>
+                    <ion-label position="floating">Tél visiteur</ion-label>
+                    <ion-input (focusin)="onProgress()" type="text"  name="telPerso" ngModel></ion-input>
+            </ion-item>
+            <ion-item>
+                    <ion-label position="floating">Email visiteur</ion-label>
+                    <ion-input (focusin)="onProgress()" type="text"  name="email" ngModel></ion-input>
+            </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating">Genre</ion-label>
+                    <ion-select  name="genre" ngModel>
+                      <ion-select-option value="M">Masculin</ion-select-option>
+                      <ion-select-option value="F">Feminin</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                              <ion-item>
+                    <ion-label position="floating">Type de visite</ion-label>
+                    <ion-select (ionChange)="checkValue($event)"  (focusin)="onProgress()" name="typeVisite" ngModel>
+                      <ion-select-option value="P">Professionnelle</ion-select-option>
+                      <ion-select-option value="NP">Non Professionnelle</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+
+              <!-- Socité save form  -->
+                <div *ngIf="choix" id="addform">
+                    <ion-item>
+                        <ion-label position="floating">Tél bureau visiteur</ion-label>
+                        <ion-input type="text"  name="telBuro" ngModel></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Nom Société </ion-label>
+                        <ion-input type="text"  name="nomSociete" ngModel></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label position="floating">Tél Societé</ion-label>
+                        <ion-input type="text"  name="telSocite" ngModel></ion-input>
+                      </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Email Societé</ion-label>
+                        <ion-input type="text"  name="emailSociete" ngModel></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Site web Société</ion-label>
+                        <ion-input type="text" name="siteWeb" ngModel></ion-input>
+                    </ion-item>
+                    </div>
+              <!-- END Socité save form  -->
+
+                  <div>
+                    <ion-button type="submit" color="danger" expand="full">Suivant <ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+                  </div>
+
+<!--                <div>-->
+              <!--                    <ion-button type="button" color="danger" (click)="onShowDate()" >Date Piker </ion-button>-->
+              <!--                </div>-->
+
+                  </form>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
+
+

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>checkrdv</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngIf=" rdvEmploye && rdvVisiteur">
+    <ion-label> <ion-badge color="light" slot="start">Date du Rendez-Vous :{{rdvData.dateRdv | date:"dd MMM , yyyy à HH:mm"}}</ion-badge></ion-label>
+  </ion-item>
+  <br>
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>Detail du Rendez-Vous</ion-card-title>
+<!--      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
+    </ion-card-header>
+    <ion-card-content *ngIf=" rdvEmploye && rdvVisiteur">
+        <ion-item><ion-label for="">Nom visiteur : <strong>{{rdvVisiteur.nom}}</strong></ion-label></ion-item>
+        <ion-item><ion-label for="">Prénom visiteur : <strong>{{rdvVisiteur.prenom}}</strong></ion-label></ion-item>
+        <ion-item><ion-label for="">Nom employé visité : <strong>{{rdvEmploye.nom}} {{rdvEmploye.prenom}}</strong></ion-label></ion-item>
+        <ion-item><ion-label for="">Date visite : <strong>{{rdvData.dateRdv | date:"d/MM/yy"}}</strong></ion-label></ion-item>
+        <ion-item><ion-label for="">Heure visite : <strong>{{rdvData.heureRdv | date:"HH:mm"}}</strong></ion-label></ion-item>
+        <ion-item><ion-label for="">Durée visite : <strong>{{rdvData.dureeRdv}}</strong></ion-label></ion-item>
+        <ion-item><ion-label for="">Objet visite : <strong>{{rdvData.objetRdv}}</strong></ion-label></ion-item>
+        <ion-item><ion-label for="">Lieu visite : <strong>{{rdvData.lieuRdv}}</strong></ion-label></ion-item>
+    </ion-card-content>
+    <div *ngIf=" rdvEmploye && rdvData">
+      <ion-chip outline color="primary" class="ion-float-right" *ngIf="!(rdvData.statut == 2 || rdvData.statut == 4)" (click)="onTerminate()">
+        <ion-label>Tertminer RDV</ion-label>
+      </ion-chip>
+      <ion-chip outline color="danger" class="ion-float-right" *ngIf="rdvData.statut == 4" (click)="onCancel()">
+        <ion-label>Annuler RDV</ion-label>
+      </ion-chip>
+    </div>
+
+  </ion-card>
+</ion-content>

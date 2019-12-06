@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Liste Rendez-vous</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="list-avatar-page">
+  <ion-list *ngIf="visible == 1">
+    <ion-list-header>Aujourd'hui</ion-list-header>
+    <div *ngFor="let rdv of rdvData">
+      <ion-item (click)="onGetRdvDetail(rdv._links)">
+        <ion-avatar slot="start">
+          <img src="assets/img/rdv_img_00.jpg">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{rdv.objetRdv}}</h2>
+          <p>{{rdv.descriptionRdv}}</p>
+        </ion-label>
+        <ion-note slot="end">{{rdv.heureRdv | date:"HH:mm"}}<ion-text color="{{rdv.statutColor}}"><br> {{rdv.statutName}}</ion-text></ion-note>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
