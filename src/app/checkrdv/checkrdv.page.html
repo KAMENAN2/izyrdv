@@ -25,12 +25,20 @@
         <ion-item><ion-label for="">Lieu visite : <strong>{{rdvData.lieuRdv}}</strong></ion-label></ion-item>
     </ion-card-content>
     <div *ngIf=" rdvEmploye && rdvData">
-      <ion-chip outline color="primary" class="ion-float-right" *ngIf="!(rdvData.statut == 2 || rdvData.statut == 4)" (click)="onTerminate()">
+      <ion-chip outline color="primary" class="ion-float-right" *ngIf="!(statut == 2 || statut == 4 || statut == 5 )" (click)="onTerminate()">
         <ion-label>Tertminer RDV</ion-label>
       </ion-chip>
-      <ion-chip outline color="danger" class="ion-float-right" *ngIf="rdvData.statut == 4" (click)="onCancel()">
+      <ion-chip outline color="danger" class="ion-float-right" *ngIf="statut == 4" (click)="onCancel()">
         <ion-label>Annuler RDV</ion-label>
       </ion-chip>
+        <ion-chip outline color="success" class="ion-float-right" *ngIf="statut == 4">
+        <ion-label (click)="openModalWithData()">Modifier RDV</ion-label>
+      </ion-chip>
+
+        <ion-chip outline color="dark" class="ion-float-right" *ngIf="statut == 5">
+        <ion-label>RDV Annulé</ion-label>
+      </ion-chip>
+
     </div>
 
   </ion-card>

@@ -1,0 +1,137 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Modification RDV</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header color="light">
+      <ion-card-title>
+        Modification de Rendez-vous
+      </ion-card-title>
+    </ion-card-header>
+    <ion-item-divider>
+
+    </ion-item-divider>
+    <ion-card-content>
+      <form #f="ngForm" (ngSubmit)="onSaveRDV(f.value)">
+        <ion-item *ngIf="data">
+          <ion-label position="floating">Nom visiteur</ion-label>
+          <ion-input  type="text" name="nom" [(ngModel)]="rdvVisiteur.nom" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Prénom visiteur</ion-label>
+          <ion-input type="text" [(ngModel)]="rdvVisiteur.prenom" name="prenom" ngModel></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Tél visiteur</ion-label>
+          <ion-input  type="text" [(ngModel)]="rdvVisiteur.telPerso"  name="telPerso" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email visiteur</ion-label>
+          <ion-input  type="text" [(ngModel)]="rdvVisiteur.email"   name="email" ngModel></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Genre</ion-label>
+          <ion-select  name="genre" [(ngModel)]="rdvVisiteur.genre"  ngModel>
+            <ion-select-option value="M">Masculin</ion-select-option>
+            <ion-select-option value="F">Feminin</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Type de visite</ion-label>
+          <ion-select (ionChange)="checkValue($event)" [(ngModel)]="rdvVisiteur.typeVisite"    name="typeVisite" ngModel>
+            <ion-select-option value="P">Professionnelle</ion-select-option>
+            <ion-select-option value="NP">Non Professionnelle</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- Socité save form  -->
+        <div *ngIf="choix" id="addform">
+          <ion-item>
+            <ion-label position="floating">Tél bureau visiteur</ion-label>
+            <ion-input type="text" [(ngModel)]="rdvVisiteur.telBuro "  name="telBuro" ngModel></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nom Société </ion-label>
+            <ion-input type="text"  [(ngModel)]="societe.nomSociete "  name="nomSociete" ngModel></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Tél Societé</ion-label>
+            <ion-input type="text" [(ngModel)]="societe.telSocite "   name="telSocite" ngModel></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Email Societé</ion-label>
+            <ion-input type="text" [(ngModel)]="societe.emailSociete " name="emailSociete" ngModel></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Site web Société</ion-label>
+            <ion-input type="text" [(ngModel)]="societe.siteWeb " name="siteWeb" ngModel></ion-input>
+          </ion-item>
+        </div>
+        <!-- END Socité save form  -->
+        <ion-item>
+          <ion-label position="floating">Objet RDV</ion-label>
+          <ion-select interface="popover" [(ngModel)]="rdvData.objetRdv"  name="objetRdv" ngModel>
+            <ion-select-option value="projet">Projet</ion-select-option>
+            <ion-select-option value="Support ou maintenance">Support ou maintenance</ion-select-option>
+            <ion-select-option value="Intervention incident">Intervention incident</ion-select-option>
+            <ion-select-option value="Livraisons materiel">Livraisons materiel</ion-select-option>
+            <ion-select-option value="Invitation">Invitation</ion-select-option>
+            <ion-select-option value="Divers">Divers</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Date Visite</ion-label>
+          <ion-datetime  displayFormat="DD/MM/YYYY" min="2012-12-09" max="2030-12-09" [(ngModel)]="rdvData.dateRdv"  name="dateRdv" ngModel></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Heure Visite</ion-label>
+          <ion-datetime  displayFormat="HH:mm" [(ngModel)]="rdvData.heureRdv" name="heureRdv" ngModel></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Lieu visite</ion-label>
+          <ion-input type="text" [(ngModel)]="rdvData.lieuRdv"  name="lieuRdv" ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Durée RDV </ion-label>
+          <ion-select interface="popover" [(ngModel)]="rdvData.dureeRdv"  name="dureeRdv" ngModel>
+            <ion-select-option value="30 mn">30 mn</ion-select-option>
+            <ion-select-option value="1H">1H</ion-select-option>
+            <ion-select-option value="1H 30mn">1H 30mn</ion-select-option>
+            <ion-select-option value="2H">2H</ion-select-option>
+            <ion-select-option value="2H 30mn">2H 30mn</ion-select-option>
+            <ion-select-option value="3H">3H</ion-select-option>
+            <ion-select-option value="plus de 3H 30mn">3H 30mn et plus</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Description RDV</ion-label>
+          <ion-textarea  name="descriptionRdv" [(ngModel)]="rdvData.descriptionRdv" ngModel></ion-textarea>
+        </ion-item>
+
+        <div>
+          <ion-button type="submit" color="danger" (click)="closeModal()" expand="full">Enregistrer</ion-button>
+        </div>
+
+        <!--                <div>-->
+        <!--                    <ion-button type="button" color="danger" (click)="onShowDate()" >Date Piker </ion-button>-->
+        <!--                </div>-->
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

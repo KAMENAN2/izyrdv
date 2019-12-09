@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'rdv', loadChildren: './rdv/rdv.module#RdvPageModule' },
   { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },
   { path: 'list-rdv', loadChildren: './list-rdv/list-rdv.module#ListRdvPageModule' },
-  { path: 'checkrdv', loadChildren: './checkrdv/checkrdv.module#CheckrdvPageModule' }
+  { path: 'checkrdv', loadChildren: './checkrdv/checkrdv.module#CheckrdvPageModule' },
+  { path: 'modalrdvmodif', loadChildren: './modalrdvmodif/modalrdvmodif.module#ModalrdvmodifPageModule' }
 
 ];
 

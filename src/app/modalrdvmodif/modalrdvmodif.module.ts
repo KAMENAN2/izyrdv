@@ -5,14 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CheckrdvPage } from './checkrdv.page';
-import {ModalrdvmodifPage} from "../modalrdvmodif/modalrdvmodif.page";
-import {DefaultPipe} from "../Default";
+import { ModalrdvmodifPage } from './modalrdvmodif.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CheckrdvPage
+    component: ModalrdvmodifPage
   }
 ];
 
@@ -23,7 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-    declarations: [CheckrdvPage, ModalrdvmodifPage, DefaultPipe],
-  entryComponents:[ModalrdvmodifPage]
+  declarations: [ModalrdvmodifPage]
 })
-export class CheckrdvPageModule {}
+export class ModalrdvmodifPageModule {}

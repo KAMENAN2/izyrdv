@@ -11,6 +11,7 @@ import {Societe} from "../Societe";
 
 
 
+
 declare var $: any;
 
 @Component({
@@ -36,7 +37,8 @@ export class HomePage implements OnInit{
               private datePicker: DatePicker,
               public rdvService:RdvService,
               public route: Router,
-              public activateRoute:ActivatedRoute,private platform:Platform) {}
+              public activateRoute:ActivatedRoute,
+              private platform:Platform) {}
 
     ngOnInit(): void {
       console.log(this.codeGen(5,localStorage.getItem("employeID")));
@@ -65,6 +67,15 @@ export class HomePage implements OnInit{
 
 
       console.log(value);
+      //----------------------- Make toast ------------------------------
+
+     /* this.toast.show(`I'm a toast`, '5000', 'center').subscribe(
+          toast => {
+            console.log(toast);
+          }
+      ); */
+      //----------------------- Make toast ------------------------------
+
       this.route.navigateByUrl("rdv",{state:value});
 
 

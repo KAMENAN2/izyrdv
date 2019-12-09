@@ -5,6 +5,9 @@ import {Employe} from "../Employe";
 import {RendezVous} from "../RendezVous";
 import {RdvService} from "../services/rdv.service";
 import {CodeGen} from "../CodeGen";
+import {AlertController} from "@ionic/angular";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-rdv',
@@ -26,7 +29,8 @@ export class RdvPage implements OnInit {
     public societeId : any;
     public visiteurId : any;
 
-  constructor(private rdvservice: RdvService ) { }
+  constructor(private rdvservice: RdvService,
+              public alertCtrl: AlertController, private route:Router) { }
 
   ngOnInit() {
     this.rdv = history.state;
@@ -90,6 +94,15 @@ export class RdvPage implements OnInit {
     console.log("ok");
     value[rdvKeys[i]] = rdvValues[i];
   } */
+//-------------- Make toast -----------------------------
+
+       /* this.toast.show(`I'm a toast`, '5000', 'center').subscribe(
+            toast => {
+                console.log(toast);
+            }
+        ); */
+// --------------END Make toast -----------------------------
+
 
 //--------------- Add attribute to Rendez-vous object -------------------
 this.rendezVous = new RendezVous(null,value.dateRdv,
@@ -182,7 +195,7 @@ this.rdvservice.onPostRdv("rendezVouses",this.rendezVous).subscribe(
                 //--------------------RelationShip Visiteur --> Societe --------------------------
                 let visiteurSociete1 ="visiteurs/"+this.visiteurId+"/societe";
                 let visiteurSociete2 = "http://localhost:8080/societes/"+this.societeId;
-                this.rdvservice.onPutRelationShipVisitSoci(visiteurSociete1,visiteurSociete2).subscribe(data =>{console.log("Societé-visiteur RelationShip saved");console.log(data)},error => {console.log(error)});
+                this.rdvservice.onPutRelationShipVisitSoci(visiteurSociete1,visiteurSociete2).subscribe(data =>{this.presentAlert();console.log("Societé-visiteur RelationShip saved");console.log(data)},error => {console.log(error)});
                 //--------------------END RelationShip Visiteur --> Societe --------------------------
             }
         )
@@ -197,8 +210,19 @@ this.rdvservice.onPostRdv("rendezVouses",this.rendezVous).subscribe(
         console.log("Rendez Vous Object");
         console.log(this.rendezVous);
 
-    }
 
+    }
+    async presentAlert() {
+        const alert = await this.alertCtrl.create({
+            header: '        Izy RDV',
+            subHeader: 'Enregistrement réussi',
+            message: 'Aller à la liste des rendez-vous?',
+            buttons: ['OK']
+        });
+
+        await alert.present();
+        this.route.navigateByUrl("list-rdv");
+    }
 //-----------------END RDV save parte 2 ---------------------
 
 
