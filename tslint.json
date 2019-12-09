@@ -1,14 +1,37 @@
 {
   "extends": "tslint:recommended",
+<<<<<<< HEAD
   "rulesDirectory": [
     "codelyzer"
   ],
+=======
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
   "rules": {
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
+<<<<<<< HEAD
       "severity": "warn"
     },
+=======
+      "severity": "warning"
+    },
+    "component-class-suffix": true,
+    "contextual-lifecycle": true,
+    "directive-class-suffix": true,
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ],
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
     "import-blacklist": [
       true,
       "rxjs/Rx"
@@ -48,7 +71,10 @@
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
+<<<<<<< HEAD
     "no-use-before-declare": true,
+=======
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
     "no-var-requires": false,
     "object-literal-key-quotes": [
       true,
@@ -61,6 +87,7 @@
       "single"
     ],
     "trailing-comma": false,
+<<<<<<< HEAD
     "no-output-on-prefix": true,
     "no-inputs-metadata-property": true,
     "no-host-metadata-property": true,
@@ -86,3 +113,22 @@
     ]
   }
 }
+=======
+    "no-conflicting-lifecycle": true,
+    "no-host-metadata-property": true,
+    "no-input-rename": true,
+    "no-inputs-metadata-property": true,
+    "no-output-native": true,
+    "no-output-on-prefix": true,
+    "no-output-rename": true,
+    "no-outputs-metadata-property": true,
+    "template-banana-in-box": true,
+    "template-no-negated-async": true,
+    "use-lifecycle-interface": true,
+    "use-pipe-transform-interface": true
+  },
+  "rulesDirectory": [
+    "codelyzer"
+  ]
+}
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de

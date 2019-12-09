@@ -1,3 +1,186 @@
+<<<<<<< HEAD
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+=======
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar" class="active">
+    <div class="sidebar-header">
+      <h3>IZY RDV</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <li><a routerLink="/" style="text-decoration: none;">RDV Dashboard</a></li>
+      <li class="active">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion des employés</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a href="#">Enregistrement Employés</a>
+          </li>
+          <li>
+            <a href="#">Enregistrement Assistants</a>
+          </li>
+          <li>
+            <a href="#">Enregistrement Acueuil/vigil</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion organisation</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li>
+            <a href="#">Modification Organiosation</a>
+          </li>
+          <li>
+            <a routerLink="/departement">Ajout/Modification Département</a>
+          </li>
+          <li>
+            <a href="#">Société</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+
+    <ul class="list-unstyled CTAs">
+      <li>
+      </li>
+      <li>
+      </li>
+    </ul>
+
+  </nav>
+
+  <!-- Page Content  -->
+
+  <div id="content">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+          <span>Menu</span>
+        </button>
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Page</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Page</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Page</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Page</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Button trigger modal -->
+<!--    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Launch demo modal
+    </button>-->
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="totalOrg && totalOrg.page.totalElements <= 1 ">
+      <form #f="ngForm" (ngSubmit)="onSaveOrganisation(f.value)">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Enregistrer votre  Organisation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+              <div class="form-group">
+                <label for="organisation">Nom Organisation</label>
+                <input  class="form-control" id="organisation" aria-describedby="emailHelp" name="nomOrganisation" placeholder="Enter Organisation" ngModel>
+                <small *ngIf="error" id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                <label for="pays">Pays</label>
+                <input  class="form-control" id="pays" aria-describedby="emailHelp" name="pays" placeholder="Enter country" ngModel>
+              </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                <label for="Ville">Ville</label>
+                <input  class="form-control" id="Ville" name="ville" placeholder="Enter city" ngModel>
+              </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="Ville">Adresse</label>
+              <input  class="form-control" id="adresse" name="adresse"  placeholder="Enter Address" ngModel>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="fix">Tél fix</label>
+                  <input  class="form-control" id="fix" name="telFix"  placeholder="Enter Tél" ngModel>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="Ville">Tél Mobile</label>
+                  <input  class="form-control" id="mobile" name="telMobile"  placeholder="Enter Tél" ngModel>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter Email" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="id_org">ID_Organisation</label>
+              <input class="form-control" id="id_org" name="idOrganisation" [ngModel]="organisation"  ngModel>
+            </div>
+
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+
+    <router-outlet></router-outlet>
+
+<!-- Divider  -->
+    <div class="line"></div>
+    <ngx-spinner
+    bdColor="rgba(51,51,51,0.4)"
+    size="large"
+    color="#fff"
+    type="ball-scale-multiple"
+    fullScreen="false"
+  >
+    <p style="font-size: 20px; color: white">Enregistrement...</p>
+  </ngx-spinner>
+
+  </div>
+</div>
+
+
+
+
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de

@@ -1,0 +1,58 @@
+
+
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="alert alert-secondary" role="alert">
+      CREATION DE DEPARTEMENTS.
+     </div>
+      <div class="card border-dark mb-3" >
+        <div class="card-header">Formulaire de creation de departement</div>
+        <form #f="ngForm" (ngSubmit)="onSaveDepartement(f.value)">
+          <div class="container">
+          <div class="form-group">
+            <label for="nomDepartement">Nom Département</label>
+            <input  class="form-control" id="nomDepartement" aria-describedby="emailHelp" name="nomDepartement" placeholder="Enter Departement" ngModel>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="idDepartement">Code Departement</label>
+                <input  class="form-control" id="idDepartement"  name="idDepartement" placeholder="Enter Departement ID" ngModel>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="Ville">Ville</label>
+                <input  class="form-control" id="Ville" name="ville"  placeholder="Enter city" ngModel>
+              </div>
+            </div>
+          </div>
+            <div class="form-group" *ngIf="organisation">
+              <label for="idOrganisation1">Organisation</label>
+              <select class="form-control" id="idOrganisation1" name="organisationId" [(ngModel)]="id" >
+                <option  *ngFor="let o of organisation._embedded.organisations;let i=index" [value]="o.id">{{o.nomOrganisation}}</option>
+
+              </select>
+            </div>
+          </div>
+          <div class="container">
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="alert alert-secondary" role="alert">
+        LISTE DES DEPARTEMENTS.
+      </div>
+      <ul class="list-group" *ngIf="departement">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let dep of departement._embedded.departements">
+          {{dep.nomDepartement}}
+          <span class="badge badge-primary badge-pill">14 employés</span>
+        </li>
+     </ul>
+    </div>
+  </div>
+

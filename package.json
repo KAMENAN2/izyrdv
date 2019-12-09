@@ -1,8 +1,13 @@
 {
+<<<<<<< HEAD
   "name": "izyRDV",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
+=======
+  "name": "izy-rdv-front-v1",
+  "version": "0.0.0",
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -13,6 +18,7 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@angular/common": "~8.1.2",
     "@angular/core": "~8.1.2",
     "@angular/forms": "~8.1.2",
@@ -55,6 +61,34 @@
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
+=======
+    "@angular/animations": "~8.2.9",
+    "@angular/common": "~8.2.9",
+    "@angular/compiler": "~8.2.9",
+    "@angular/core": "~8.2.9",
+    "@angular/forms": "~8.2.9",
+    "@angular/platform-browser": "~8.2.9",
+    "@angular/platform-browser-dynamic": "~8.2.9",
+    "@angular/router": "~8.2.9",
+    "@ng-bootstrap/ng-bootstrap": "^5.1.1",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "ngx-spinner": "^8.0.3",
+    "popper.js": "^1.16.0",
+    "rxjs": "~6.4.0",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.803.8",
+    "@angular/cli": "~8.3.8",
+    "@angular/compiler-cli": "~8.2.9",
+    "@angular/language-service": "~8.2.9",
+    "@types/node": "~8.9.4",
+    "@types/jasmine": "~3.3.8",
+    "@types/jasminewd2": "~2.0.3",
+    "codelyzer": "^5.0.0",
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -65,6 +99,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
+<<<<<<< HEAD
     "typescript": "~3.4.3"
   },
   "description": "An Ionic project",
@@ -86,3 +121,8 @@
     ]
   }
 }
+=======
+    "typescript": "~3.5.3"
+  }
+}
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de

@@ -43,7 +43,11 @@
  *
  * (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame
  * (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick
+<<<<<<< HEAD
  * (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
+=======
+ * (window as any).__zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
  *
  *  in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
  *  with the following flag, it will bypass `zone.js` patch for IE/Edge
@@ -52,12 +56,18 @@
  *
  */
 
+<<<<<<< HEAD
 import './zone-flags.ts';
 
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
 
+=======
+/***************************************************************************************************
+ * Zone JS is required by default for Angular itself.
+ */
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
 import 'zone.js/dist/zone';  // Included with Angular CLI.
 
 

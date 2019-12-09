@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+<<<<<<< HEAD
   "defaultProject": "app",
   "newProjectRoot": "projects",
   "projects": {
@@ -10,15 +11,30 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
+=======
+  "newProjectRoot": "projects",
+  "projects": {
+    "izy-RDV-Front-V1": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+<<<<<<< HEAD
             "outputPath": "www",
+=======
+            "outputPath": "dist/izy-RDV-Front-V1",
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+<<<<<<< HEAD
             "assets": [
               {
                 "glob": "**/*",
@@ -40,6 +56,22 @@
               }
             ],
             "scripts": ["node_modules/jquery/dist/jquery.min.js"]
+=======
+            "aot": false,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
           },
           "configurations": {
             "production": {
@@ -63,17 +95,28 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+<<<<<<< HEAD
                 }
               ]
             },
             "ci": {
               "progress": false
+=======
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "app:build"
           },
           "configurations": {
@@ -82,13 +125,24 @@
             },
             "ci": {
               "progress": false
+=======
+            "browserTarget": "izy-RDV-Front-V1:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "izy-RDV-Front-V1:build:production"
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "app:build"
+=======
+            "browserTarget": "izy-RDV-Front-V1:build"
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
           }
         },
         "test": {
@@ -98,6 +152,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+<<<<<<< HEAD
             "styles": [],
             "scripts": [],
             "assets": [
@@ -118,6 +173,16 @@
               "progress": false,
               "watch": false
             }
+=======
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
           }
         },
         "lint": {
@@ -128,13 +193,20 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
+<<<<<<< HEAD
             "exclude": ["**/node_modules/**"]
+=======
+            "exclude": [
+              "**/node_modules/**"
+            ]
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
+<<<<<<< HEAD
             "devServerTarget": "app:serve"
           },
           "configurations": {
@@ -167,12 +239,20 @@
             "production": {
               "cordovaBuildTarget": "app:ionic-cordova-build:production",
               "devServerTarget": "app:serve:production"
+=======
+            "devServerTarget": "izy-RDV-Front-V1:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "izy-RDV-Front-V1:serve:production"
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
             }
           }
         }
       }
     }
   },
+<<<<<<< HEAD
   "cli": {
     "defaultCollection": "@ionic/angular-toolkit"
   },
@@ -185,3 +265,17 @@
     }
   }
 }
+=======
+  "defaultProject": "izy-RDV-Front-V1",
+  "schematics": {
+    "@schematics/angular": {
+      "component": {
+        "spec": false
+      },
+      "service": {
+        "spec": false
+      }
+    }
+  }
+}
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de

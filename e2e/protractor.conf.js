@@ -1,8 +1,18 @@
+<<<<<<< HEAD
+=======
+// @ts-check
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
 const { SpecReporter } = require('jasmine-spec-reporter');
 
+<<<<<<< HEAD
+=======
+/**
+ * @type { import("protractor").Config }
+ */
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
@@ -25,4 +35,8 @@ exports.config = {
     });
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de

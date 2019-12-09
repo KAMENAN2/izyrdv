@@ -16,7 +16,11 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
+<<<<<<< HEAD
       dir: require('path').join(__dirname, '../coverage'),
+=======
+      dir: require('path').join(__dirname, './coverage/izy-RDV-Front-V1'),
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
@@ -26,6 +30,11 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
+<<<<<<< HEAD
     singleRun: false
+=======
+    singleRun: false,
+    restartOnFileChange: true
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
   });
 };

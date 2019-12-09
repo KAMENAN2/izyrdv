@@ -9,7 +9,10 @@
   },
   "files": [
     "src/test.ts",
+<<<<<<< HEAD
     "src/zone-flags.ts",
+=======
+>>>>>>> 75e067ca023a3c73cabf48759631afaddbbbb9de
     "src/polyfills.ts"
   ],
   "include": [
